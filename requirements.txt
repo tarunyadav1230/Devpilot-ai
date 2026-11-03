@@ -1,0 +1,61 @@
+--extra-index-url https://download.pytorch.org/whl/cpu
+
+# Core
+fastapi==0.122.0
+uvicorn==0.38.0
+python-dotenv==1.1.1
+pydantic==2.11.10
+pydantic-settings==2.10.1
+python-multipart==0.0.20
+
+# LLM
+openai==1.83.0
+instructor
+
+
+# RAG
+torch
+faiss-cpu
+transformers==4.46.3
+sentence-transformers==3.1.1
+numpy==2.3.5
+
+# Agents
+crewai==1.7.2
+mcp==1.16.0
+
+# Rate Limiting
+slowapi==0.1.9
+
+# GitHub cloning
+gitpython
+
+# PDF support
+pypdf==6.4.0
+pdfplumber==0.11.8
+
+# HTTP & Tools
+requests==2.32.5
+httpx==0.28.1
+ddgs>=9.0.0
+duckduckgo-search>=6.0.0
+
+# Streaming
+sse-starlette==3.1.2
+
+# UI
+uvloop==0.19.0
+
+# BM25
+rank-bm25
+
+# Cache & Async Tasks
+redis==5.0.1
+celery>=5.3.0
+
+# Anthropic
+anthropic
+
+# Observability
+langsmith
+psutil
