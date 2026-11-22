@@ -81,6 +81,8 @@ docker-compose up --build
 - **Web UI**: [http://localhost:5173](http://localhost:5173)
 - **FastAPI API**: [http://localhost:8000](http://localhost:8000)
 
+> 📖 **Production Deployment**: For complete cloud VPS setup, Nginx reverse proxy, custom domain SSL, and Vercel/Render guides, refer to [DEPLOYMENT.md](DEPLOYMENT.md).
+
 ---
 
 ### 💻 Manual Setup
