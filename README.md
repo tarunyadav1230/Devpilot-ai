@@ -7,6 +7,8 @@
 
 ---
 
+[![Live Demo](https://img.shields.io/badge/Live_Demo-Vercel-000000?style=for-the-badge&logo=vercel&logoColor=white)](https://devpilot-ai-git-main-mspg1456-3447.vercel.app)
+[![API Status](https://img.shields.io/badge/API_Status-Online-46a2f1?style=for-the-badge&logo=render&logoColor=white)](https://devpilot-ai-068y.onrender.com/docs)
 [![FastAPI](https://img.shields.io/badge/FastAPI-009688?style=for-the-badge&logo=fastapi&logoColor=white)](https://fastapi.tiangolo.com)
 [![Python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white)](https://python.org)
 [![FAISS](https://img.shields.io/badge/FAISS-Vector_Store-blueviolet?style=for-the-badge)](https://github.com/facebookresearch/faiss)
@@ -17,6 +19,19 @@
 [![MIT License](https://img.shields.io/badge/License-MIT-green?style=for-the-badge)](LICENSE)
 
 </div>
+
+---
+
+## 🌐 Live Production Deployments
+
+Access the live cloud deployment right now:
+
+| Service | Platform | Direct Link | Status |
+|---|---|---|---|
+| 💻 **Frontend Web Application** | **Vercel** | [devpilot-ai-git-main-mspg1456-3447.vercel.app](https://devpilot-ai-git-main-mspg1456-3447.vercel.app) | 🟢 **Live** |
+| 🚀 **Backend REST & SSE API** | **Render** | [devpilot-ai-068y.onrender.com](https://devpilot-ai-068y.onrender.com) | 🟢 **Live** |
+| 📖 **Interactive API Documentation** | **Swagger UI** | [/docs Interactive API Explorer](https://devpilot-ai-068y.onrender.com/docs) | 🟢 **Online** |
+| 📊 **System Observability & Metrics** | **Telemetry** | [/api/observability/overview](https://devpilot-ai-068y.onrender.com/api/observability/overview) | 🟢 **Healthy** |
 
 ---
 
@@ -64,7 +79,18 @@ DevPilot AI is a **fully autonomous developer assistant** powered by a pipeline 
 
 ## 🚀 Quick Start
 
-### 🐳 Docker Compose (Recommended)
+### ⚡ 1-Click Cloud Deployment (Instant)
+
+Deploy your own live copy of DevPilot AI with a single click:
+
+| Provider | Purpose | Deploy Button |
+|---|---|---|
+| **Render** | Full Stack (FastAPI + Redis + Celery + Frontend) | [![Deploy to Render](https://render.com/images/deploy-to-render-button.svg)](https://render.com/deploy?repo=https://github.com/tarunyadav1230/Devpilot-ai) |
+| **Vercel** | Cyber-Cyan React Frontend UI | [![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/tarunyadav1230/Devpilot-ai&root-directory=ui) |
+
+---
+
+### 🐳 Docker Compose (Local & VPS)
 
 To spin up the entire system (FastAPI backend, Redis, Celery worker, and React UI) in a single command:
 
