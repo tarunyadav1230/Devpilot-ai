@@ -1,4 +1,17 @@
-export const API_BASE = import.meta.env.VITE_API_BASE || "http://localhost:8000";
+function getApiBase(): string {
+  if (import.meta.env.VITE_API_BASE) {
+    return import.meta.env.VITE_API_BASE;
+  }
+  if (typeof window !== "undefined") {
+    const origin = window.location.origin;
+    if (origin.includes("devpilot-frontend")) {
+      return origin.replace("devpilot-frontend", "devpilot-backend");
+    }
+  }
+  return "http://localhost:8000";
+}
+
+export const API_BASE = getApiBase();
 
 export interface RepoRegistry {
   [name: string]: string;
