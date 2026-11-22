@@ -1,0 +1,62 @@
+services:
+  # 1. FastAPI Backend Service
+  - type: web
+    name: devpilot-backend
+    env: docker
+    dockerfilePath: Dockerfile
+    plan: starter
+    region: oregon
+    healthCheckPath: /docs
+    envVars:
+      - key: OPENROUTER_API_KEY
+        sync: false
+      - key: REDIS_URL
+        fromService:
+          type: redis
+          name: devpilot-redis
+          property: connectionString
+      - key: PORT
+        value: 7860
+      - key: LANGSMITH_TRACING
+        value: "false"
+
+  # 2. Celery Worker Service
+  - type: worker
+    name: devpilot-worker
+    env: docker
+    dockerfilePath: Dockerfile
+    dockerCommand: celery -A app.tasks.celery_app worker --loglevel=info --concurrency=2
+    plan: starter
+    region: oregon
+    envVars:
+      - key: OPENROUTER_API_KEY
+        sync: false
+      - key: REDIS_URL
+        fromService:
+          type: redis
+          name: devpilot-redis
+          property: connectionString
+
+  # 3. React Frontend (Static Web App)
+  - type: web
+    name: devpilot-frontend
+    env: static
+    buildCommand: cd ui && npm install && npm run build
+    staticPublishPath: ui/dist
+    envVars:
+      - key: VITE_API_BASE
+        fromService:
+          type: web
+          name: devpilot-backend
+          property: url
+    routes:
+      - type: rewrite
+        source: /*
+        destination: /index.html
+
+  # 4. Redis Cache & Broker
+  - type: redis
+    name: devpilot-redis
+    region: oregon
+    plan: free
+    ipAllowList: []
