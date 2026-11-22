@@ -7,6 +7,9 @@ function getApiBase(): string {
     if (origin.includes("devpilot-frontend")) {
       return origin.replace("devpilot-frontend", "devpilot-backend");
     }
+    if (!origin.includes("localhost") && !origin.includes("127.0.0.1")) {
+      return "https://devpilot-ai-068y.onrender.com";
+    }
   }
   return "http://localhost:8000";
 }
