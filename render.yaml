@@ -1,10 +1,10 @@
 services:
-  # 1. FastAPI Backend Service
+  # 1. FastAPI Backend Service (100% Free Plan)
   - type: web
     name: devpilot-backend
     env: docker
     dockerfilePath: Dockerfile
-    plan: starter
+    plan: free
     region: oregon
     healthCheckPath: /docs
     envVars:
@@ -20,38 +20,18 @@ services:
       - key: LANGSMITH_TRACING
         value: "false"
 
-  # 2. Celery Worker Service
-  - type: worker
-    name: devpilot-worker
-    env: docker
-    dockerfilePath: Dockerfile
-    dockerCommand: celery -A app.tasks.celery_app worker --loglevel=info --concurrency=2
-    plan: starter
-    region: oregon
-    envVars:
-      - key: OPENROUTER_API_KEY
-        sync: false
-      - key: REDIS_URL
-        fromService:
-          type: keyvalue
-          name: devpilot-redis
-          property: connectionString
-
-  # 3. React Frontend (Static Web App)
+  # 2. React Frontend Static Site (100% Free Plan)
   - type: web
     name: devpilot-frontend
     env: static
     buildCommand: cd ui && npm install && npm run build
     staticPublishPath: ui/dist
-    envVars:
-      - key: VITE_API_BASE
-        sync: false
     routes:
       - type: rewrite
         source: /*
         destination: /index.html
 
-  # 4. Redis Cache & Broker (Render Key-Value Store)
+  # 3. Redis Cache & Broker (100% Free Plan)
   - type: keyvalue
     name: devpilot-redis
     region: oregon
